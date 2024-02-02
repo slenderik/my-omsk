@@ -1,13 +1,47 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:og="http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Куда сходить сегодня?</title>
+    <title>Мой Омск</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/logo-favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo-favicon.png">
+
+    <meta name="keywords" content="Куда сходить в омске, омск, карта омска, omsk"/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="theme-color" content="#00000">
+    <meta name="description" content="Список классных мест омска. Покажем куда сегодня сходить, где поесть, погулять, развлечься или потанцевать в Омске. Не важно в какой компании, с детьми, семьёй, друзьями или девушкой">
+
+    <meta property="og:title" content="Куда сегодня сходить в Омске?"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content= "https://my-omsk.ru/index.html"/>
+    <meta property="og:site_name" content="Твой список мест Омска"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:description" content="Список классных мест омска. Покажем куда сегодня сходить, где поесть, погулять, развлечься или потанцевать в Омске. Не важно в какой компании, с детьми, семьёй, друзьями или девушкой ^^"/>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+        ym(96294939, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true,
+            ecommerce:"dataLayer"
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/96294939" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
     <header>
@@ -15,25 +49,45 @@
             <img src='assets/images/logo.svg' alt=''>
         </a>
     </header>
+
     <main>
         <h1>Куда сегодня сходить в Омске?</h1>
         <div class="day-place">
             <div class="day-place__image">
-                <picture>
-                    <source srcset="content/lenin-street-low.png" media="(min-width: 1000px)">
-                    <img src="content/lenin-street-high.png" alt="Дома с красивой лепниной ЗАМЕНИТЬ ЭТО">
-                </picture>
+                <img src="content/lenin-street-high.png" alt="Дома с красивой лепниной">
             </div>
             <h3 class="day-place__header">ул. Ленина</h3>
         </div>
 
         <h2>Категории</h2>
+
+        <div class="chips-wrap">
+            <div class="chips-container">
+                <a class="no-link" href="#"><div class="chip light-green">Парки</div></a>
+                <a class="no-link" href="#"><div class="chip light-yellow">Кафе</div></a>
+                <a class="no-link" href="#"><div class="chip light-blue">События</div></a>
+                <a class="no-link" href="#"><div class="chip light-orange">Памятники</div></a>
+            </div>
+        </div>
+
         <h2>Интересно сегодня</h2>
         <section>
             <article class="place-card">
-
+                <div class="place-card__image">
+                    <img src="content/cafe-mesto-pro-testo.png" alt="Кафе место про тесто изнутри">
+                </div>
+                <h3>Место про тесто</h3>
             </article>
         </section>
+
+        <hr>
     </main>
+
+    <footer>
+        <ul class="social-media"> 
+            <li><a class="social-media__item no-link" href="https://vk.com/myomsk_app" target="_blank"><img src="assets/images/VK Logo.svg" alt="Наша ВКонтакте страница"/></a></li>
+            <li><a class="social-media__item no-link" href="https://t.me/myomsk_app" target="_blank"><img src="assets/images/telegram logo.svg" alt="Наша Telegram канал"/></a></li>
+        </ul>
+    </footer>
 </body>
 </html>
