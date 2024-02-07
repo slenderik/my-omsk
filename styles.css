@@ -12,49 +12,48 @@
 :root {
     --color-black: black;
     --color-white: white;
+    --color-gray: #CDCDCD;
 
-    --pc-width: 800px;
+    --color-telegram: #2AABEE;
+    --color-vkontakte: #0077FF;
 }
+
+.light-blue {background-color: #C1E0FD;}
+.light-green {background-color: #DAFFCD;}
+.light-yellow {background-color: #FFF8BE;}
+.light-orange {background-color: #FFCF86;}
+.color-vkontakte {color: var(--color-vkontakte)}
+.color-telegram {color: var(--color-telegram)}
+
 
 body {
     font-family: 'Inter', sans-serif;
-    font-weight: light;
+
+    font-size: 32px;
+    @media (min-width: 1000px) {
+        font-size: 17px;
+    }
 }
 
-
 h1 {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: normal;
 
-    @media (min-width: var(--pc-width)) {
-        font-size: 40px;
+    @media (min-width: 1000px) {
+        font-size: 64px;
     }
 }
 
 h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
     font-size: 20px;
     margin-top: 8px;
     margin-bottom: 8px;
 
-    @media (min-width: var(--pc-width)) {
-        font-size: 30px;
+    @media (min-width: 1000px) {
+        font-size: 32px;
     }
-}
-
-h3 {
-    font-size: 17px;
-
-    @media (min-width: var(--pc-width)) {
-        font-size: 20px;
-    }
-}
-
-
-hr {
-    border-color: gray;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .no-link {
@@ -62,33 +61,37 @@ hr {
     color: var(--color-black);
 }
 
-.white-text {color:white;}
+.white-text {
+    color: var(--color-white);
+}
 
 img {
     width: 100%;
-    border-radius: 20px;
 
-    @media (min-width: var(--pc-width)) {
+    @media (min-width: 1000px) {
         width: auto;
     }
 }
 
 header  {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     padding: 0px 15px 0px 15px;
+
+    @media (min-width: 1000px) {
+        display: none;
+    }
 }
 
-main {padding: 0px 15px 0px 15px;}
+.wrapper {
+    width: 95%;
+    margin: auto;
 
-footer {padding: 0px 15px 0px 15px;}
-
-
-.light-blue {background-color: #C1E0FD;}
-.light-green {background-color: #DAFFCD;}
-.light-yellow {background-color: #FFF8BE;}
-.light-orange {background-color: #FFCF86;}
+    @media (min-width: 1000px) {
+        width: 1200px;
+    }
+}
 
 
 .day-place {
@@ -99,21 +102,27 @@ footer {padding: 0px 15px 0px 15px;}
     width: 100%;
     border-radius: 20px;
 
-    @media (min-width: 800px) {
+    @media (min-width: 1000px) {
         width: auto;
         max-height: 300px;
     }
 }
-.day-place__header {
-    text-align: center;
+
+
+.day-place__inner-container {
+
 }
 
 
 .chips-container {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: overlay;
+    overflow-x: scroll;
     gap: 10px
+}
+
+.chips-container::-webkit-scrollbar {
+    width: 0;
 }
 
 .chip {
@@ -127,14 +136,73 @@ footer {padding: 0px 15px 0px 15px;}
     border-radius: 15px;
 }
 
+.title-container {
+    display: flex;
+    justify-content: center; 
+}
+
+
+.category-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category-container-all {
+    display: none;
+    color: var(--color-gray);
+    
+    @media (min-width: 1000px) {
+        display: inline;
+        font-size: 20px;
+    }
+}
+
+
+
+.places-list {
+    /* По умолчанию настройки под телефон */
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (min-width: 1000px) {
+        /* Адаптации под компьютер */
+        flex-shrink: 0;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+    }
+}
+
+.places-list::-webkit-scrollbar {
+    width: 0;
+}
+
 
 .place-card {
-
+    @media (min-width: 1000px) {
+        min-width: 400px;
+    }
 }
 
 .place-card__image {
     width: 100%;
     border-radius: 20px;
+}
+
+
+
+
+hr {    
+    color: var(--color-gray);
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -148,8 +216,8 @@ footer {padding: 0px 15px 0px 15px;}
     height: 40px;
     display: inline;
 
-    @media (min-width: 800px) {
-        width: 60px;
-        height: 60px;
+    @media (min-width: 1000px) {
+        width: 40px;
+        height: 40px;
     }
 }
