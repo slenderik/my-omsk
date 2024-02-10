@@ -5,9 +5,11 @@
     font-style: normal;
 }
 
+
 *, *::before, *::after {
     margin: 0px;
 }
+
 
 :root {
     --color-black: black;
@@ -18,6 +20,7 @@
     --color-vkontakte: #0077FF;
 }
 
+
 .light-blue {background-color: #C1E0FD;}
 .light-green {background-color: #DAFFCD;}
 .light-yellow {background-color: #FFF8BE;}
@@ -26,12 +29,22 @@
 .color-telegram {color: var(--color-telegram)}
 
 
+/*.name {
+    По умолчанию настройки под телефон
+
+    @media (min-width: 1000px) {
+        Адаптации под компьютер     
+    }
+*/
+
+
+/* Default elements */
 body {
     font-family: 'Inter', sans-serif;
 
-    font-size: 32px;
+    font-size: 17px;
     @media (min-width: 1000px) {
-        font-size: 17px;
+        font-size: 24px;
     }
 }
 
@@ -56,13 +69,10 @@ h2 {
     }
 }
 
-.no-link {
+
+a {
     text-decoration: none;
     color: var(--color-black);
-}
-
-.white-text {
-    color: var(--color-white);
 }
 
 img {
@@ -72,17 +82,21 @@ img {
         width: auto;
     }
 }
+/* End of default elements */
+
+
 
 header  {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0px 15px 0px 15px;
+    height: 50px;
 
     @media (min-width: 1000px) {
-        display: none;
     }
 }
+
 
 .wrapper {
     width: 95%;
@@ -94,6 +108,8 @@ header  {
 }
 
 
+
+/* Place of the day */
 .day-place {
 
 }
@@ -112,34 +128,65 @@ header  {
 .day-place__inner-container {
 
 }
+/* Place of the day */
 
 
+
+/* Design system elements */
 .chips-container {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
     gap: 10px
 }
-
 .chips-container::-webkit-scrollbar {
     width: 0;
 }
-
 .chip {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     height: 49px;
-    min-width: 146px;
     font-size: 20px;
+    min-width: 146px;
     border-radius: 15px;
 }
 
-.title-container {
-    display: flex;
-    justify-content: center; 
+.button-black {
+    color: var(--color-white);
+    background-color: var(--color-black);
+
+    height: 52px;
+    min-width: 300px;
+    border-radius: 15px;
 }
+.button-black:hover {
+    cursor: pointer;
+    background-color: var(--color-gray);
+    font-style: bold;
+}
+
+.capsule-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+    padding: 8px 15px 8px 15px;
+
+    color: var(--color-black);
+    background-color: var(--color-white);
+
+    @media (min-width: 1000px) {
+        /* Адаптация под телефон */
+
+        border-radius: 20px;
+        padding: 4px 10px 4px 10px;
+    }
+}
+/* End of design system elements  */
+
 
 
 .category-container {
@@ -191,8 +238,6 @@ header  {
 }
 
 
-
-
 hr {    
     color: var(--color-gray);
     margin-top: 30px;
@@ -221,3 +266,93 @@ hr {
         height: 40px;
     }
 }
+
+
+/* PLACE STYLES */
+
+.work-time-container {
+    gap: 8px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+
+    position: absolute;
+    right: 40px;
+    bottom: 25px;
+
+    @media (max-width: 1000px) {
+        right: 12px;
+        bottom: 8px;
+    }
+}
+
+.place-title-container {
+    display: flex;
+    justify-content: center;
+    
+    
+    width: 100%;
+    bottom: 25px;
+    position: absolute;
+}
+
+.place-title-container__text {
+    font-size: 40px;
+    color: var(--color-white);
+
+    @media (max-width: 1000px) {
+        font-size: 30px;
+        content: "Terra Coffe";
+    }
+}
+
+
+.place-image-container {
+    position: relative;
+}
+
+.place-image-container__image {
+    z-index: -1;
+    width: 100%;
+}
+
+.place-information {
+    z-index: 2;
+    position: relative;
+    border-radius: 10px;
+    background-color: var(--color-white);
+    
+    margin-top: 0px;
+    margin-left: 2%;
+    margin-right: 2%;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.place-description {
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    border-radius: 25px;
+    background-color: var(--color-gray);
+}
+
+
+.button-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    
+    left: 33px;
+    top: 20px;
+    position: absolute;
+
+    width: 67px;
+    height: 46px;
+    border-radius: 20px;
+}
+/* PLACE STYLES */
