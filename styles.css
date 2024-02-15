@@ -11,6 +11,11 @@
 }
 
 
+/*
+    small android 300+ px 
+    big android 400+ px
+*/
+
 :root {
     --color-black: black;
     --color-white: white;
@@ -39,12 +44,25 @@
 
 
 /* Default elements */
+
 body {
     font-family: 'Inter', sans-serif;
 
     font-size: 17px;
     @media (min-width: 1000px) {
-        font-size: 24px;
+        font-size: 20px;
+    }
+}
+
+header  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 15px;
+    height: 50px;
+    
+    @media (max-width: 1000px) {
+        height: 30px;
     }
 }
 
@@ -53,7 +71,7 @@ h1 {
     font-weight: normal;
 
     @media (min-width: 1000px) {
-        font-size: 64px;
+        font-size: 40px;
     }
 }
 
@@ -69,7 +87,6 @@ h2 {
     }
 }
 
-
 a {
     text-decoration: none;
     color: var(--color-black);
@@ -82,31 +99,24 @@ img {
         width: auto;
     }
 }
-/* End of default elements */
 
-
-
-header  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 15px 0px 15px;
-    height: 50px;
-
-    @media (min-width: 1000px) {
-    }
+hr {    
+    color: var(--color-gray);
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
+
+/* End of default elements */
 
 
 .wrapper {
     width: 95%;
     margin: auto;
 
-    @media (min-width: 1000px) {
+    @media (min-width: 1250px) {
         width: 1200px;
     }
 }
-
 
 
 /* Place of the day */
@@ -158,7 +168,7 @@ header  {
     background-color: var(--color-black);
 
     height: 52px;
-    min-width: 300px;
+    width: 100%;
     border-radius: 15px;
 }
 .button-black:hover {
@@ -173,7 +183,7 @@ header  {
     justify-content: center;
 
     border-radius: 20px;
-    padding: 8px 15px 8px 15px;
+    padding: 8px 15px;
 
     color: var(--color-black);
     background-color: var(--color-white);
@@ -181,13 +191,21 @@ header  {
     @media (min-width: 1000px) {
         /* Адаптация под телефон */
 
-        border-radius: 20px;
-        padding: 4px 10px 4px 10px;
+        padding: 4px 10px;
+    }
+
+    @media (max-width: 400px) {
+        display: none;
     }
 }
 /* End of design system elements  */
 
 
+.centered-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .category-container {
     display: flex;
@@ -195,7 +213,7 @@ header  {
     justify-content: space-between;
 }
 
-.category-container-all {
+.category-container__all-link {
     display: none;
     color: var(--color-gray);
     
@@ -206,6 +224,7 @@ header  {
 }
 
 
+/* PLACE LIST ON MAIN */
 
 .places-list {
     /* По умолчанию настройки под телефон */
@@ -237,40 +256,12 @@ header  {
     border-radius: 20px;
 }
 
-
-hr {    
-    color: var(--color-gray);
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-
-.footer-inner {
-    display: flex;
-    justify-content: space-between;
-}
-
-
-.social-media {
-    list-style: none;
-    padding-inline-start: 0px;
-}
-
-.social-media__item > img, li {
-    width: 40px;
-    height: 40px;
-    display: inline;
-
-    @media (min-width: 1000px) {
-        width: 40px;
-        height: 40px;
-    }
-}
+/* END OF PLACE LIST ON MAIN */
 
 
 /* PLACE STYLES */
 
-.work-time-container {
+.place-image__left-container {
     gap: 8px;
     display: flex;
     align-items: flex-end;
@@ -295,6 +286,13 @@ hr {
     width: 100%;
     bottom: 25px;
     position: absolute;
+
+    @media (max-width: 600px) {
+        display: block;
+        justify-content: none;
+        bottom: 10px;
+        left: 5px;
+    }
 }
 
 .place-title-container__text {
@@ -302,8 +300,7 @@ hr {
     color: var(--color-white);
 
     @media (max-width: 1000px) {
-        font-size: 30px;
-        content: "Terra Coffe";
+        font-size: 25px;
     }
 }
 
@@ -317,7 +314,11 @@ hr {
     width: 100%;
 }
 
-.place-information {
+.place-information-container {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+
     z-index: 2;
     position: relative;
     border-radius: 10px;
@@ -340,19 +341,77 @@ hr {
     background-color: var(--color-gray);
 }
 
-
 .button-back {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--color-white);
     
-    left: 33px;
-    top: 20px;
+    top: 1vw;
+    left: 1.75vw;
     position: absolute;
 
     width: 67px;
     height: 46px;
     border-radius: 20px;
+
+    @media (max-width: 1000px) {
+
+
+        width: 45px;
+        height: 30px;
+    }
+
+    @media (max-width: 400px) {
+        top: 5px;
+        left: 10px;
+
+        width: 45px;
+        height: 30px;
+    }
 }
-/* PLACE STYLES */
+
+.button-back__image {
+    width: 34px;
+    height: 30px;
+
+    @media (max-width: 1000px) {
+        width: 25px;
+        height: 20px;
+    }
+
+    @media (max-width: 400px) {
+        width: 25px;
+        height: 20px;
+    }
+}
+/* END OF PLACE */
+
+
+
+/* FOOTER StYLES */
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.social-media {
+    list-style: none;
+    padding-inline-start: 0px;
+    font-size: 16px;
+}
+
+.social-media__item > img, li {
+    width: 40px;
+    height: 40px;
+    display: inline;
+
+    @media (min-width: 1000px) {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* END FOOTER */

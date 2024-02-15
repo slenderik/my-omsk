@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой Омск</title>
+    <title>Terra Coffe в Омске</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,7 @@
 <body>
     <header>
         <a href="index.html">
-            <img src='assets/images/logo.svg' alt='Логотип' aria-hidden="true">
+            <img src='assets/images/logo.svg' alt='Логотип My-Omsk ✨' aria-hidden="true">
         </a>
     </header>
 
@@ -59,45 +59,45 @@
                 <!-- Back button -->
                 <a href="index.html">
                     <div class="button-back">
-                        <img src="assets/images/back.svg"  width="34" height="30">  
+                        <img  class="button-back__image"src="assets/images/back.svg">  
                     </div>
                 </a>
                 <!-- Back button -->
 
                 <div class="place-title-container">
-                    <h1 class="place-title-container__text">Terra Coffe сегодня в Омске</h1>
+                    <h1 class="place-title-container__text">Terra Coffe</h1>
                 </div>
 
-                <div class="work-time-container">
-                    <div class="capsule-container">12-21</div>
+                <div class="place-image__left-container">
+                    <div class="capsule-container">12:00 - 21:00</div>
                     <div class="capsule-container">сб-вс выходной</div>
                 </div>
             </div>
 
             
-            <div class="place-information">
-                <p>Описание:</p>
+            <div class="place-information-container">
                 <div class="place-description">
                     <p>Магазин specialty кофе, чая, десертов и аксессуаров для заваривания. 
                     Помогает в любой ситуации. Приятное кофе, со средними ценами. 
                     Тут ценят доброту во всём. <br>
                     Советуем капучино, макароны и места на входе.</p>
                 </div>
-                <input class="button-black" type="button" value="Открыть в картах" onClick='location.href="https://yandex.ru/maps/?rtext=~55.029759, 73.276813. html/"'>
-            </div>
+            
+                <div style="position:relative;overflow:hidden;">
+                    <a href="https://yandex.ru/maps/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">
+                        Лапшичная с маленьким цветком в большом окне
+                    </a>
+                    <a href="https://yandex.ru/maps/66/omsk/category/fast_food/184106386/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">
+                        Быстрое питание в Омске
+                    </a>
+                    <a href="https://yandex.ru/maps/66/omsk/category/canteen/184106396/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">
+                        Столовая в Омске
+                    </a>
+                    <iframe src="https://yandex.ru/map-widget/v1/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?ll=73.376316%2C54.981349&z=15.4" width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;">
+                    </iframe>
+                </div>
 
-            <div style="position:relative;overflow:hidden;">
-                <a href="https://yandex.ru/maps/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">
-                    Лапшичная с маленьким цветком в большом окне
-                </a>
-                <a href="https://yandex.ru/maps/66/omsk/category/fast_food/184106386/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">
-                    Быстрое питание в Омске
-                </a>
-                <a href="https://yandex.ru/maps/66/omsk/category/canteen/184106396/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">
-                    Столовая в Омске
-                </a>
-                <iframe src="https://yandex.ru/map-widget/v1/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?ll=73.376316%2C54.981349&z=15.4" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;">
-                </iframe>
+                <input class="button-black" type="button" value="Открыть в картах" onClick='location.href="https://yandex.ru/maps/?rtext=~55.029759, 73.276813. html/"'>
             </div>
         </div>
     </main>
