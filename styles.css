@@ -163,6 +163,8 @@ hr {
     border-radius: 15px;
 }
 
+
+
 .button-black {
     color: var(--color-white);
     background-color: var(--color-black);
@@ -172,11 +174,14 @@ hr {
     width: 100%;
     border-radius: 20px;
 }
+
 .button-black:hover {
     cursor: pointer;
-    background-color: #1A1A1A;
     font-style: bold;
+    background-color: #1A1A1A;
 }
+
+
 
 .capsule-container {
     display: flex;
@@ -199,6 +204,7 @@ hr {
         display: none;
     }
 }
+
 /* End of design system elements  */
 
 
@@ -262,23 +268,6 @@ hr {
 
 /* PLACE STYLES */
 
-.place-image__left-container {
-    gap: 8px;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-
-
-    position: absolute;
-    right: 40px;
-    bottom: 25px;
-
-    @media (max-width: 1000px) {
-        right: 12px;
-        bottom: 8px;
-    }
-}
-
 .place-title-container {
     display: flex;
     justify-content: center;
@@ -305,6 +294,22 @@ hr {
     }
 }
 
+.place-image__left-container {
+    gap: 8px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+
+    position: absolute;
+    right: 40px;
+    bottom: 25px;
+
+    @media (max-width: 1000px) {
+        right: 12px;
+        bottom: 8px;
+    }
+}
 
 .place-image-container {
     position: relative;
@@ -313,26 +318,6 @@ hr {
 .place-image-container__image {
     z-index: -1;
     width: 100%;
-}
-
-.place-information-container {
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-
-    z-index: 2;
-    position: relative;
-    background-color: var(--color-white);
-    
-    margin-top: 15px;
-    margin-left: 32px;
-    margin-right: 32px;
-}
-
-.place-description {
-    padding: 20px 15px;
-    border-radius: 20px;
-    background-color: var(--color-gray);
 }
 
 .button-back {
@@ -350,8 +335,6 @@ hr {
     border-radius: 20px;
 
     @media (max-width: 1000px) {
-
-
         width: 45px;
         height: 30px;
     }
@@ -380,11 +363,42 @@ hr {
     }
 }
 
+/**/
 
+.place-information-container {
+    display: flex;
+    flex-direction: row;
+
+    z-index: 2;
+    position: relative;
+    background-color: var(--color-white);
+    
+    margin-top: 15px;
+    margin-left: 32px;
+    margin-right: 32px;
+    gap: 10px;
+}
+
+.button-and-description-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.place-description {
+    min-width: 400px;
+    padding: 20px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--color-black);
+}
 
 .map-container {
+    min-width: 400px;
+    width: 50%;
     position: relative;
     overflow: hidden;
+    margin-right: 10px;
 }
 
 .map-container__placeholder1 {
@@ -394,25 +408,12 @@ hr {
     position: absolute;
 }
 
-.map-container__placeholder2 {
-    color: #eee;
-    font-size: 12px;
-    position: absolute;
-    top: 14px;
-}
-
-.map-container__placeholder3 {
-    color: #eee;
-    font-size: 12px;
-    position: absolute;
-    top: 28px;
-}
-
 .map-container__frame {
     position: relative;
     width: 100%;
     height: 400px;
     border-radius: 20px;
+    border: 1px solid var(--color-black);
 }
 /* END OF PLACE */
 
