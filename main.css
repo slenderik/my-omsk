@@ -143,6 +143,44 @@ hr {
 
 
 /* Design system elements */
+
+.fab-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+
+    right: 16px;
+    bottom: 16px;
+    position: fixed;
+
+    z-index: 5;
+    background-color: white;
+
+
+    box-shadow: 0px 5px 8px 3px rgba(34, 60, 80, 0.15);
+    -moz-box-shadow: 0px 5px 8px 3px rgba(34, 60, 80, 0.15);
+    -webkit-box-shadow: 0px 5px 8px 3px rgba(34, 60, 80, 0.15);
+
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+
+    @media (max-width: 400px) {
+        /*Адаптация под телефон*/
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        
+        right: 16px;
+        bottom: 16px;
+    }
+}
+
+
 .chips-container {
     display: flex;
     flex-wrap: nowrap;
@@ -401,7 +439,7 @@ hr {
     margin-right: 10px;
 }
 
-.map-container__placeholder1 {
+.map-container__placeholder {
     top: 0px;
     color: #eee;
     font-size: 12px;
