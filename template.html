@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terra Coffe в Омске</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
@@ -80,12 +80,21 @@
             </div>
             <!-- /Image -->
 
-            <!-- INFO -->
-            <div class="place-information-container">
+            <!--<a href="https://yandex.ru/maps/?ll=30.310182,59.951059&z=12&l=map">Карта Санкт-Петербурга</a>
+            <a href="yandexmaps://maps.yandex.ru/?ll=37.62,55.75&z=12">Открыть карту Москвы в приложении Яндекс.Карты</a>-->
 
-                <div class="button-and-description-container">
+            <!-- INFO -->
+            <div class="place-body-container">
+
+                <div class="place-info-container">
                     <input
                         class="button-black"
+                        type="button"
+                        value="Пойти!"
+                        onClick='location.href="https://yandex.ru/maps/?rtext=~55.029759, 73.276813. html/"'
+                    >
+                    <input
+                        class="text-button mobile-only"
                         type="button"
                         value="Открыть в картах"
                         onClick='location.href="https://yandex.ru/maps/?rtext=~55.029759, 73.276813. html/"'
@@ -99,21 +108,18 @@
                     </div>
                 </div>
                 
-                <div class="map-container">
-                    <a href="https://yandex.ru/maps/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?utm_medium=mapframe&utm_source=maps" class="map-container__placeholder1">
+                <!-- MAP -->
+                <div class="place-map-container">
+                    <a href="https://yandex.ru/maps/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?utm_medium=mapframe&utm_source=maps" class="map-placeholder">
                         Лапшичная с маленьким цветком в большом окне
-                    </a>
-                    <a href="https://yandex.ru/maps/66/omsk/category/fast_food/184106386/?utm_medium=mapframe&utm_source=maps" class="map-container__placeholder2">
-                        Быстрое питание в Омске
-                    </a>
-                    <a href="https://yandex.ru/maps/66/omsk/category/canteen/184106396/?utm_medium=mapframe&utm_source=maps" class="map-container__placeholder3">
-                        Столовая в Омске
                     </a>
                     <iframe
                         src="https://yandex.ru/map-widget/v1/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?ll=73.376316%2C54.981349&z=15.4"
                         allowfullscreen="true" class="map-container__frame"
                     ></iframe>
+                    <div class="capsule-container map-address-capsule">ул. Ленина, 20</div>
                 </div>
+                <!-- /MAP -->
             </div>
             <!-- /INFO -->
         </div>
@@ -124,17 +130,17 @@
             <hr>
 
             <div class="footer-inner">
-                <p>К сожалению мы могли использовать чужие изображения.
-                    Если хотите чтобы мы убрать изобрежение сообщите нам
-                    <a class="no-link" href="https://vk.com/myomsk_app"><span class="color-telegram">в телеграмме</span></a> или
-                    <a class="no-link" href="https://vk.com/myomsk_app"><span class="color-vkontakte">ВКонтакте</span></a>.
-                </p>
                 <p>
                     Что-то работает ни так? Получили плохой опыт от места из нашего приложения? Сообщите нам — мы разберёмся.
                 </p>
+                <p>К сожалению мы могли использовать чужие изображения.
+                    Если хотите чтобы мы убрать изобрежение сообщите нам
+                    <a href="https://vk.com/myomsk_app"><span class="color-telegram">в телеграмме</span></a> или
+                    <a href="https://vk.com/myomsk_app"><span class="color-vkontakte">ВКонтакте</span></a>.
+                </p>
                 <ul class="social-media"> 
-                    <li><a class="social-media__item no-link" href="https://vk.com/myomsk_app" target="_blank"><img src="assets/images/VK Logo.svg" alt="Наша ВКонтакте страница"/></a></li>
-                    <li><a class="social-media__item no-link" href="https://t.me/myomsk_app" target="_blank"><img src="assets/images/telegram logo.svg" alt="Наша Telegram канал"/></a></li>
+                    <li><a href="https://vk.com/myomsk_app" target="_blank"><img class="social-media__item-square" src="assets/images/VK Logo.svg" alt="Наша ВКонтакте страница"/></a></li>
+                    <li><a href="https://t.me/myomsk_app" target="_blank"><img class="social-media__item-round" src="assets/images/telegram logo.svg" alt="Наша Telegram канал"/></a></li>
                 </ul>
             </div>
         </div>

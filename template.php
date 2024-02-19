@@ -211,7 +211,7 @@ if (isset($_POST['place-name'])) {
     // адрес места текст
     $adressPlaceName = 'Ул. Колотушкина, 5/Б';
     // адрес места цифры
-    $adressPlace = '212.1231/131.1231';
+    $adressPlace = '54.980191,73.373409';
 
 
     $siteText = '';
