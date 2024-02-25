@@ -559,13 +559,14 @@ hr {
 }
 
 .footer-inner p {
-    max-width: 500px;
+    max-width: 500px;   
 }
 
 .social-media {
     display: flex;
     align-items: center;
     flex-direction: column;
+
 }
 
 .social-media__item-round {

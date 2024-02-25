@@ -1,6 +1,3 @@
-
-
-
 <?php
 
 function getHead($articleName) {
@@ -68,14 +65,18 @@ function getHeader() {
 }
 
 
-function getMain($articleName, $workTime, $weekendDays, $adressPlaceName,  $placeDescription) {
+function getMain($articleName, $workTime, $weekendDays, $addressName, $yandexMapId, $mapLink,  $description, $imagePath, $altText) {
     $text = <<<EOD
     <main>
         <div class="wrapper">
 
             <!-- Image -->
             <div class="place-image-container">
-                <img class="place-image-container__image" src="assets/places_images/terra x1.png" alt="Уютное кофейня ">
+                <img class="place-image-container__image" src="
+    EOD . $imagePath . <<<EOD
+                " alt="
+    EOD . $altText . <<<EOD
+                ">
 
                 <!-- Back button -->
                 <a href="index.html">
@@ -107,32 +108,43 @@ function getMain($articleName, $workTime, $weekendDays, $adressPlaceName,  $plac
             <!-- /Image -->
 
             <!-- INFO -->
-            <div class="place-information-container">
+            <div class="place-body-container">
 
-                <div class="button-and-description-container">
+                <div class="place-info-container">
                     <input
                         class="button-black"
                         type="button"
+                        value="Пойти!"
+                        onClick='location.href="https://yandex.ru/maps/org/
+        EOD . $yandexMapId . <<<EOD
+                    "'>
+
+                    <input
+                        class="text-button mobile-only"
+                        type="button"
                         value="Открыть в картах"
-                        onClick='location.href="https://yandex.ru/maps/?rtext=~55.029759, 73.276813. html/"'
-                    >
-                
+                        onClick='location.href="yandexmaps://maps.yandex.ru/?oid=
+        EOD . $yandexMapId . <<<EOD
+                    "'>
                     <div class="place-description">
                         <p>
-        EOD . $placeDescription . <<<EOD
+        EOD . $description . <<<EOD
                         </p>
                     </div>
                 </div>
                 
-                <div class="map-container">
-                    <a href="https://yandex.ru/maps/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?utm_medium=mapframe&utm_source=maps" class="map-container__placeholder">
-                        Лапшичная с маленьким цветком в большом окне
-                    </a>
+                <!-- MAP -->
+                <div class="place-map-container">
                     <iframe
-                        src="https://yandex.ru/map-widget/v1/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?ll=73.376316%2C54.981349&z=15.4"
-                        allowfullscreen="true" class="map-container__frame"
+                        src="
+        EOD . $mapLink . <<<EOD
+                        " allowfullscreen="true" class="map-container__frame"
                     ></iframe>
+                    <div class="capsule-container map-address-capsule">
+        EOD . $addressName . <<<EOD
+                    </div>
                 </div>
+                <!-- /MAP -->
             </div>
             <!-- /INFO -->
         </div>
@@ -158,8 +170,8 @@ function getFooter() {
                     Что-то работает ни так? Получили плохой опыт от места из нашего приложения? Сообщите нам — а мы разберёмся.
                 </p>
                 <ul class="social-media"> 
-                    <li><a class="social-media__item no-link" href="https://vk.com/myomsk_app" target="_blank"><img src="assets/images/VK Logo.svg" alt="Наша ВКонтакте страница"/></a></li>
-                    <li><a class="social-media__item no-link" href="https://t.me/myomsk_app" target="_blank"><img src="assets/images/telegram logo.svg" alt="Наша Telegram канал"/></a></li>
+                    <a class="social-media__item no-link" href="https://vk.com/myomsk_app" target="_blank"><img src="assets/images/VK Logo.svg" alt="Наша ВКонтакте страница"/></a>
+                    <a class="social-media__item no-link" href="https://t.me/myomsk_app" target="_blank"><img src="assets/images/telegram logo.svg" alt="Наша Telegram канал"/></a>
                 </ul>
             </div>
         </div>
@@ -167,72 +179,68 @@ function getFooter() {
     EOD;
     return $text;
 }
-?>
 
-<form action="template.php" method="post">
-    <p>Название статьи: <input name="place-name" type="text" size="40" required> </p>
-    <p>Описание статьи: <textarea name="place-description" cols="40" rows="3" required> </p>
-        </label>
-            <input
-                type="reset"
-                value="Очистить"
-                class="button button-blue"
-            >
-            <input
-                type="submit"
-                value="Отправить"
-                class="button button-orange"
-                disabled
-            >
-    </form>  
 
-<?
+function create_or_update_place($placeId) {
+    
+    try {
+        $db = new PDO("mysql:host=localhost;dbname=my-omsk", "root", "");
 
-if (isset($_POST['place-name'])) {
+        $sql = "SELECT * FROM `places` WHERE `id` = $placeId";
+        $result = $db->query($sql);
 
-    // Анкер на статью
-    $linkName = 'terra-coffe';
-    // Название-статьи
-    $placeName = $_POST['place-name']; "Terra Coffe В ОМскее";
-    //Описание-статьи
-    $placeDescription = $_POST['place-description'];
-    "Магазин specialty кофе, чая, десертов и аксессуаров для заваривания. 
-    Помогает в любой ситуации. Приятное кофе, со средними ценами. 
-    Тут ценят доброту во всём. <br>
-    Советуем капучино, макароны и места на входе.";
+        while($row = $result->fetch()){
+            $title = $row["title"];
+            $workTime = $row["work_time"];
+            $weekendDays = $row["weekand_days"];
+            $description = $row["description"];
+            $linkName = $row["link_name"];
 
-    // каталог / теги
-    $tags = ['coffe', 'pivo']; 
-    // время работы
-    $workTime = '12:00 - 24:00';
-    // выходные
-    $weekendDays = 'сб-вс выходной';
+            $mapLink = $row["map_link"];
+            $addressName = $row["address_name"];
+            $yandexMapId = $row["yandex_map_id"];
+        }
 
-    // адрес места текст
-    $adressPlaceName = 'Ул. Колотушкина, 5/Б';
-    // адрес места цифры
-    $adressPlace = '54.980191,73.373409';
+        $sql = "SELECT * FROM `place_images` WHERE `place_id` = $placeId";
+        $result = $db->query($sql);
 
+        while($row = $result->fetch()){
+            $altText = $row["alt"];
+            $imagePath = $row["image_path"];
+        }
+
+    }
+    catch (PDOException $e) {
+        echo "Ошикба создания: " . $e->getTraceAsString();
+    }
 
     $siteText = '';
-
-    $siteText .= getHead($placeName);
+    $siteText .= getHead($title);
     $siteText .= "<body>";
     $siteText .= getHeader();
-    $siteText .= getMain($placeName, $workTime, $weekendDays, $adressPlaceName, $placeDescription);
+    //tags may be here later!
+    $siteText .= getMain(
+        $title,
+        $workTime,
+        $weekendDays,
+        $addressName,
+        $yandexMapId,
+        $mapLink,
+        $description,
+        $imagePath,
+        $altText
+    );
     $siteText .= getFooter();
     $siteText .= "</body>";
     $siteText .= "</html>";
 
 
-    $filename = __DIR__ . '/' . $linkName . '.html';
+    $filePath = $linkName . '.html';
     
-    $fh = fopen($filename, 'w');
+    $fh = fopen($filePath, 'w');
     fwrite($fh, $siteText);
     fclose($fh);
-
-    echo "im cool enought?";
-    echo $siteText;
     
+    return $filePath;
 }
-?>  
+?>
