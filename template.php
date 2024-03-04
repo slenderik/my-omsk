@@ -73,9 +73,9 @@ function getMain($articleName, $workTime, $weekendDays, $addressName, $yandexMap
             <!-- Image -->
             <div class="place-image-container">
                 <img class="place-image-container__image" src="
-    EOD . $imagePath . <<<EOD
+    EOD . $imagePath[0] . <<<EOD
                 " alt="
-    EOD . $altText . <<<EOD
+    EOD . $altText[0] . <<<EOD
                 ">
 
                 <!-- Back button -->
@@ -161,17 +161,17 @@ function getFooter() {
             <hr>
 
             <div class="footer-inner">
+                <p>Что-то работает ни так? Получили плохой опыт от места из нашего приложения? Сообщите нам — а мы разберёмся.</p>
+
                 <p>К сожалению мы могли использовать чужие изображения.
                     Если хотите чтобы мы убрать изобрежение сообщите нам
                     <a class="no-link" href="https://vk.com/myomsk_app"><span class="color-telegram">в телеграмме</span></a> или
                     <a class="no-link" href="https://vk.com/myomsk_app"><span class="color-vkontakte">ВКонтакте</span></a>.
                 </p>
-                <p>
-                    Что-то работает ни так? Получили плохой опыт от места из нашего приложения? Сообщите нам — а мы разберёмся.
-                </p>
+                
                 <ul class="social-media"> 
-                    <a class="social-media__item no-link" href="https://vk.com/myomsk_app" target="_blank"><img src="assets/images/VK Logo.svg" alt="Наша ВКонтакте страница"/></a>
-                    <a class="social-media__item no-link" href="https://t.me/myomsk_app" target="_blank"><img src="assets/images/telegram logo.svg" alt="Наша Telegram канал"/></a>
+                    <a href="https://vk.com/myomsk_app" target="_blank"><img class="social-media__item-square" src="assets/images/VK Logo.svg" alt="Наша ВКонтакте страница"/></a>
+                    <a href="https://t.me/myomsk_app" target="_blank"><img class="social-media__item-round" src="assets/images/telegram logo.svg" alt="Наша Telegram канал"/></a>
                 </ul>
             </div>
         </div>
@@ -191,10 +191,11 @@ function create_or_update_place($placeId) {
 
         while($row = $result->fetch()){
             $title = $row["title"];
-            $workTime = $row["work_time"];
-            $weekendDays = $row["weekand_days"];
-            $description = $row["description"];
             $linkName = $row["link_name"];
+            $description = $row["description"];
+
+            $workTime = $row["work_time"];
+            $weekendDays = $row["weekends"];
 
             $mapLink = $row["map_link"];
             $addressName = $row["address_name"];
@@ -204,9 +205,12 @@ function create_or_update_place($placeId) {
         $sql = "SELECT * FROM `place_images` WHERE `place_id` = $placeId";
         $result = $db->query($sql);
 
+        $altText = [];
+        $imagePath = [];
+
         while($row = $result->fetch()){
-            $altText = $row["alt"];
-            $imagePath = $row["image_path"];
+            $altText[] = $row["alt"];
+            $imagePath[] = $row["image_path"];
         }
 
     }

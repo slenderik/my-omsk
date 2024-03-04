@@ -1,0 +1,28 @@
+
+
+input[type=text], input[type=password] {
+    height: 30px; 
+    border-color: lightblue;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+
+body {
+    display: flex;
+    justify-items: center;
+
+} 
+
+.admin-panel {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    max-width: 1000px;
+    background-color: white;
+}

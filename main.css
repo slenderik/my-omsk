@@ -237,19 +237,25 @@ hr {
 
 
 .button-black {
+    border: none;
+    height: 54px;
+    border-radius: 20px;
     color: var(--color-white);
     background-color: var(--color-black);
-
-    width: 100%;
-    height: 54px;
-    border: none;
-    border-radius: 20px;
 
     @media (max-width: 1000px) {
         /*Адаптация под телефон*/
         height: 44px;
     }
 }
+
+.fil-container {
+    width: 100%;
+}
+.half-container {
+    width: 49%;
+}
+
 
 .button-black:hover {
     cursor: pointer;
