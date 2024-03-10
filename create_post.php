@@ -8,13 +8,13 @@ if (isset($_POST['admin-password']) && $_POST['admin-password'] == 'admin-pidora
         $db = new PDO("mysql:host=localhost;dbname=my-omsk", "root", "");
         $sql = "INSERT INTO `places`
                 (`title`, `link_name`, `description`, `work_time`, `weekends`, `address_name`, `yandex_map_id`, `map_link`)
-                VALUES (:title, :link_name, :place_description, :work_time, :weekends, :address_name, :yandex_map_id, :map_link, :vk_link)";
+                VALUES (:title, :link_name, :place_description, :work_time, :weekends, :address_name, :yandex_map_id, :map_link)";
         $stmt = $db->prepare($sql);
 
         $title = $_POST["title"];
         $place_description = $_POST["description"];
 
-        // Загружаем сточные данные
+        // Подставляем сточные данные
         $stmt->bindValue(":title", $title);
         $stmt->bindValue(":link_name", $_POST["link-name"]);
         $stmt->bindValue(":place_description", $place_description);
@@ -26,20 +26,20 @@ if (isset($_POST['admin-password']) && $_POST['admin-password'] == 'admin-pidora
         $stmt->bindValue(":yandex_map_id", $_POST["org-map-id"]);
         $stmt->bindValue(":map_link", $_POST["map_link"]);
 
-        $stmt->bindValue(":", $_POST["address-name"]);
         $stmt->bindValue(":yandex_map_id", $_POST["org-map-id"]);
         $stmt->bindValue(":map_link", $_POST["map_link"]);
         
-        // выполняем prepared statement
         $affectedRowsNumber = $stmt->execute();
         echo "Добавлено: $affectedRowsNumber строк";
 
+        // Получает Id добавленной записи
         $sql = "SELECT `id` FROM `places` WHERE `title` = :title AND `description` = :place_description";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(":title", $title);
         $stmt->bindValue(":place_description", $place_description);
         $stmt->execute();
         $placeId = "";
+
         foreach ($stmt as $row) {
             $placeId = $row["id"];
         };
@@ -66,13 +66,12 @@ if (isset($_POST['admin-password']) && $_POST['admin-password'] == 'admin-pidora
                 $tmp_name = $_FILES["image-files"]["tmp_name"][$key];
                 $imageFilePath = "place_images/" . $_FILES["image-files"]["name"][$key];
                 $isFileUploated = move_uploaded_file($tmp_name, $imageFilePath);
-                $alt = $_POST["image-alts"][$key];
+
                 if ($isFileUploated) {
-                    echo "ЗАГРУЖЕНОы" . $key . ".";
-                    continue;
+                    echo "Загружено фото - " . $key . ".";
                 }
                 else {
-                    echo "Ошибка загрузки фото на сервер. Фото №" . $key . " не загружено.";
+                    echo "Ошибка не загружен фото - " . $key . "";
                     continue;
                 }
                 
@@ -85,7 +84,7 @@ if (isset($_POST['admin-password']) && $_POST['admin-password'] == 'admin-pidora
 
                 $stmt->bindValue(":place_id", $placeId);
                 $stmt->bindValue(":image_path", $imageFilePath);
-                $stmt->bindValue(":alt", $alt);
+                $stmt->bindValue(":alt", "ASd");
 
                 $affectedRowsNumber = $stmt->execute();
 
@@ -101,8 +100,6 @@ if (isset($_POST['admin-password']) && $_POST['admin-password'] == 'admin-pidora
         echo "Ошибка добавления: " . $e->getMessage() . " - " . $e->getTraceAsString();
     }
 };
-
-
 ?>
 
 
@@ -143,7 +140,7 @@ if (isset($_POST['admin-password']) && $_POST['admin-password'] == 'admin-pidora
         <input name="org-map-id" value="20435594221" type="text" size="40">
 
         <label for="map_link">Ссылка на карту</label>
-        <input name="map_link" value="20435594221" type="text" size="40">
+        <input name="map_link" value="https://yandex.ru/map-widget/v1/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?ll=73.376316%2C54.981349&z=15.4" type="text" size="40">
         
         <fieldset>
             <legend>Соц сети</legend>
@@ -156,7 +153,7 @@ if (isset($_POST['admin-password']) && $_POST['admin-password'] == 'admin-pidora
             <label for="map_link">Telegramm</label>
             <input name="tg-link" value="https://vk.com/myomsk_app" type="text">
         </fieldset>
-
+        
         <fieldset>
             <legend>Изображение~</legend>
             <div>

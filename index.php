@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    include('template.php');
+    
+?>
+
 <!DOCTYPE html>
 <html lang="ru" xmlns:og="http://ogp.me/ns#">
 <head>
@@ -44,11 +50,9 @@
     <!-- /Yandex.Metrika counter -->
 </head>
 <body>
-    <header>
-        <a href="index.html">
-            <img class="header-logo" src='assets/images/logo.svg' alt='Логотип My-Omsk ✨' aria-hidden="true">
-        </a>
-    </header>
+    <?php
+    echo getHeader();
+    ?>
 
     <div class="wrapper">
         <div class="title-container centered-container">
@@ -96,7 +100,7 @@
             <div class="places-list">
 
                 <article class="place-card">
-                    <a href="template.html">
+                    <a href="terr-coffe.html">
                             <img class="place-card__image" src="content/cafe-mesto-pro-testo.png"
                             alt="Кафе место про тесто изнутри" loading="lazy">
                         <p>Место про тесто</p>

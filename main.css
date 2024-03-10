@@ -1,7 +1,21 @@
 @font-face {
     font-family: "Inter";
-    src: url("assets/fonts/static/Inter-Light.ttf");
+    src: url("assets/fonts/Inter/Inter-Light.ttf");
     font-weight: light;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("assets/fonts/Inter/Inter-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto Flex";
+    src: url("assets/fonts/Roboto\ Flex/RobotoFlex-Regular");
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -46,9 +60,10 @@
 /* Default elements */
 
 body {
+    font-size: 17px;
+    font-weight: lighter;
     font-family: 'Inter', sans-serif;
 
-    font-size: 17px;
     @media (min-width: 1000px) {
         font-size: 20px;
     }
