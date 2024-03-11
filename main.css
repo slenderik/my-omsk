@@ -111,14 +111,6 @@ a {
     color: var(--color-black);
 }
 
-img {
-    width: 100%;
-
-    @media (min-width: 1000px) {
-        width: auto;
-    }
-}
-
 hr {    
     color: var(--color-gray);
     margin-top: 30px;
@@ -581,6 +573,10 @@ hr {
 
 .footer-inner p {
     max-width: 500px;   
+}
+
+.footer__copyright {
+    
 }
 
 .social-media {

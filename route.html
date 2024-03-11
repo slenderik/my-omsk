@@ -41,22 +41,73 @@
         </a>
     </header>
 
-    <div class="wrapper">
+    <div class="routes_wrapper">
 
-        <div class="route-container" id="">
-            <div class="route-container__inner-container">
-                <div class="route-container__number">1</div>
-                
-                <!--<img class="route-container__type-icon" src="assets/images/monument.png" alt="иконка памятника" aria-hidden="true">-->
-                
-                <div class="route-container__title">Памятник влюблённым</div>
+        <div class="route-block" id="place1">
+            <div class="route-block__number">1</div>
+            <div id="title1" class="route-block__title">Памятник влюблённым</div>
+            
+            <img id="image1"  class="route-block__image" src="content/cafe-mesto-pro-testo.png" alt="Картинка" loading="lazy">
+
+
+            <div id="button1" class="route-block__button">
+                Пойти
+                <a class="fill-container" href="terr-coffe.html"></a>
             </div>
+        </div>
+        <div class="route-block" id="place21">
+            <div class="route-block__number">1</div>
+            <div id="title21" class="route-block__title">Памятник влюблённым</div>
+            
+            <img id="image21" class="route-block__image" src="content/cafe-mesto-pro-testo.png" alt="Картинка" loading="lazy">
 
-            <a href="">
-                <div class="route-container__action-button__blue">Пойти</div>
-            </a>
+
+            <div id="button21" class="route-block__button">
+                Пойти
+                <a class="fill-container" href="terr-coffe.html"></a>
+            </div>
+        </div>
+        
+        <div class="route-block" id="place2">
+
+            <div class="route-block__number">1</div>
+            <div id="title2" class="route-block__title">Памятник влюблённым</div>
+            
+            <img id="image2" class="route-block__image" src="content/cafe-mesto-pro-testo.png" alt="Картинка" loading="lazy">
+
+            
+            <div id="button2" class="route-block__button">
+                Пойти
+                <a class="fill-container" href="terr-coffe.html"></a>
+            </div>
         </div>
 
+
     </div>
+    <script>
+
+        var allButtons = document.querySelectorAll('div[class^=route-bloc]');
+        console.log("Found", allButtons.length, "div which class starts with “button”.");
+
+        for (var i = 0; i < allButtons.length; i++) {
+        allButtons[i].addEventListener('click', function RouteCliker(event) {
+            let id = event.currentTarget.id.replace('place', '');
+            console.log(id);
+
+            let block = document.getElementById('place' + id);
+            block.classList.toggle('open');
+
+            let image = document.getElementById('image' + id);
+            image.classList.toggle('open');
+
+            let title = document.getElementById('title' + id);
+            title.classList.toggle('open');
+
+            let button = document.getElementById('button' + id);
+            button.classList.toggle('open');
+
+            console.log('GREAT');
+        })};
+    </script>
 </body>
 </html>

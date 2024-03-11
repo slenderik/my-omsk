@@ -146,18 +146,17 @@ function getFooter() {
             <hr>
 
             <div class=\"footer-inner\">
-                <p>Что-то работает ни так? Получили плохой опыт от места из нашего приложения? Сообщите нам — а мы разберёмся.</p>
+            <p>Что-то работает ни так? Получили плохой опыт от места из нашего приложения? Сообщите нам — в
+            <a class=\"no-link\" href=\"https://vk.com/myomsk_app\"><span class=\"color-telegram\">в телеграмме</span></a> или
+            <a class=\"no-link\" href=\"https://vk.com/myomsk_app\"><span class=\"color-vkontakte\">ВКонтакте</span></a>.
+        </p></p>
+            
+            <ul class=\"social-media\"> 
+                <a href=\"https://vk.com/myomsk_app\" target=\"_blank\"><img class=\"social-media__item-square\" src=\"assets/images/VK Logo.svg\" alt=\"Наша ВКонтакте страница\"/></a>
+                <a href=\"https://t.me/myomsk_app\" target=\"_blank\"><img class=\"social-media__item-round\" src=\"assets/images/telegram logo.svg\" alt=\"Наша Telegram канал\"/></a>
+            </ul>
 
-                <p>К сожалению мы могли использовать чужие изображения.
-                    Если хотите чтобы мы убрать изобрежение сообщите нам
-                    <a class=\"no-link\" href=\"https://vk.com/myomsk_app\"><span class=\"color-telegram\">в телеграмме</span></a> или
-                    <a class=\"no-link\" href=\"https://vk.com/myomsk_app\"><span class=\"color-vkontakte\">ВКонтакте</span></a>.
-                </p>
-                
-                <ul class=\"social-media\"> 
-                    <a href=\"https://vk.com/myomsk_app\" target=\"_blank\"><img class=\"social-media__item-square\" src=\"assets/images/VK Logo.svg\" alt=\"Наша ВКонтакте страница\"/></a>
-                    <a href=\"https://t.me/myomsk_app\" target=\"_blank\"><img class=\"social-media__item-round\" src=\"assets/images/telegram logo.svg\" alt=\"Наша Telegram канал\"/></a>
-                </ul>
+            <p class='footer__copyright'>&copy; 2024</p>
             </div>
         </div>
     </footer>
