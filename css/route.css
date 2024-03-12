@@ -59,6 +59,10 @@
     }
 }
 
+.route-block__link {
+    color: var(--color-white);
+}
+
 .route-block__image {
     display: none;
     position: absolute;

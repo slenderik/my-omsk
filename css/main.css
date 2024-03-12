@@ -44,8 +44,8 @@
 .light-green {background-color: #DAFFCD;}
 .light-yellow {background-color: #FFF8BE;}
 .light-orange {background-color: #FFCF86;}
-.color-vkontakte {color: var(--color-vkontakte)}
-.color-telegram {color: var(--color-telegram)}
+.color-vkontakte {color: var(--color-vkontakte);}
+.color-telegram {color: var(--color-telegram);}
 
 
 /*.name {

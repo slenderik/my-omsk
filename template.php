@@ -1,6 +1,6 @@
 <?php
 
-$pageMainLink = 'index.php';
+$mainPageLink = 'index.php';
 
 function getHead($articleName) {
     $text = "
@@ -10,7 +10,8 @@ function getHead($articleName) {
         <meta charset=\"UTF-8\">
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
         <title>{$articleName}</title>
-        <link rel=\"stylesheet\" href=\"main.css\">
+        <link rel='stylesheet' href='../css/route.css'>
+        <link rel=\"stylesheet\" href=\"../css/main.css\">
         <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
         <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
         <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap\" rel=\"stylesheet\">
@@ -49,15 +50,16 @@ function getHead($articleName) {
         <noscript><div><img src=\"https://mc.yandex.ru/watch/96294939\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div></noscript>
         <!-- /Yandex.Metrika counter -->
     </head>
+    <body>
     "; 
     return $text;
 }
 
 function getHeader() {
-    global $pageMainLink;
+    global $mainPageLink;
     $text = "
     <header>
-        <a href=\"{$pageMainLink}\">
+        <a href=\"{$mainPageLink}\">
             <img src=\"assets/images/logo.svg\" alt=\"Логотип My-Omsk ✨\" aria-label=\"Link to main page\" aria-hidden=\"true\">
         </a>
     </header>
@@ -67,7 +69,7 @@ function getHeader() {
 
 
 function getMain($articleName, $workTime, $weekendDays, $addressName, $yandexMapId, $mapLink,  $description, $imagePath, $altText) {
-    global $pageMainLink;
+    global $mainPageLink;
     $text = "
     <main>
         <div class=\"wrapper\">
@@ -77,7 +79,7 @@ function getMain($articleName, $workTime, $weekendDays, $addressName, $yandexMap
                 <img class=\"place-image-container__image\" src=\"{$imagePath[0]}\" alt=\"{$altText[0]}\">
 
                 <!-- Back button -->
-                <a href=\"{$pageMainLink}\">
+                <a href=\"{$mainPageLink}\">
                     <div class=\"button-back\">
                         <img class=\"button-back__image\"src=\"assets/images/back.svg\">  
                     </div>
@@ -160,6 +162,8 @@ function getFooter() {
             </div>
         </div>
     </footer>
+    </body>
+    </html>
     ";
     return $text;
 }
@@ -204,7 +208,6 @@ function create_or_update_place($placeId) {
 
     $siteText = '';
     $siteText .= getHead($title);
-    $siteText .= "<body>";
     $siteText .= getHeader();
     //tags may be here later!
     $siteText .= getMain(
@@ -219,11 +222,9 @@ function create_or_update_place($placeId) {
         $altText
     );
     $siteText .= getFooter();
-    $siteText .= "</body>";
-    $siteText .= "</html>";
 
 
-    $filePath = $linkName . '.html';
+    $filePath = 'places/' . $linkName . '.html';
     
     $fh = fopen($filePath, 'w');
     fwrite($fh, $siteText);
