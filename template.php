@@ -10,26 +10,40 @@ function getHead($articleName) {
         <meta charset=\"UTF-8\">
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
         <title>{$articleName}</title>
-        <link rel='stylesheet' href='../css/route.css'>
+
+        <!-- CSS styles -->
+        <link rel=\"stylesheet\" href=\"css/route.css\">
         <link rel=\"stylesheet\" href=\"../css/main.css\">
+        <!-- /CSS styles -->
+
         <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
         <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
-        <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap\" rel=\"stylesheet\">
+        <link rel=\"preload\" href=\"/fonts/static/Raleway-Regular.ttf\"
+            as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>
+
+        <!-- Favicon -->
         <link rel=\"shortcut icon\" href=\"assets/images/logo-favicon.ico\">
         <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/images/logo-favicon.png\">
+        <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap\" rel=\"stylesheet\">
+        <!-- /Favicon -->
 
+        <!-- SEO tags-->
         <meta name=\"keywords\" content=\"Куда сходить в омске, омск, карта омска, omsk\"/>
         <meta name=\"robots\" content=\"index,follow\"/>
         <meta name=\"theme-color\" content=\"#00000\">
         <meta name=\"description\" content=\"Список классных мест омска. Покажем куда сегодня сходить, где поесть, погулять, развлечься или потанцевать в Омске. Не важно в какой компании, с детьми, семьёй, друзьями или девушкой\">
+        <!-- /SEO tags-->
 
-        <meta property=\"og:title\" content=\"Куда сегодня сходить в Омске?\"/>
+        <!-- Open Graph -->
         <meta property=\"og:type\" content=\"article\"/>
+        <meta property=\"og:title\" content=\"Куда сегодня сходить в Омске?\"/>
+        <meta property=\"og:site_name\" content=\"Твои места Омска\"/>
         <meta property=\"og:url\" content=\"https://my-omsk.ru/index.html\"/>
-        <meta property=\"og:site_name\" content=\"Твой список мест Омска\"/>
-        <meta property=\"og:image:width\" content=\"1200\"/>
+
         <meta property=\"og:image:height\" content=\"630\"/>
+        <meta property=\"og:image:width\" content=\"1200\"/>
         <meta property=\"og:description\" content=\"Список классных мест омска. Покажем куда сегодня сходить, где поесть, погулять, развлечься или потанцевать в Омске. Не важно в какой компании, с детьми, семьёй, друзьями или девушкой ^^\"/>
+        <!-- /Open Graph -->
 
         <!-- Yandex.Metrika counter -->
         <script type=\"text/javascript\" >
@@ -79,7 +93,7 @@ function getMain($articleName, $workTime, $weekendDays, $addressName, $yandexMap
                 <img class=\"place-image-container__image\" src=\"{$imagePath[0]}\" alt=\"{$altText[0]}\">
 
                 <!-- Back button -->
-                <a href=\"{$mainPageLink}\">
+                <a href=\"{$mainPageLink}\" accesskey=\"b\">
                     <div class=\"button-back\">
                         <img class=\"button-back__image\"src=\"assets/images/back.svg\">  
                     </div>
@@ -107,16 +121,13 @@ function getMain($articleName, $workTime, $weekendDays, $addressName, $yandexMap
                 <!-- INFO -->
                 <div class=\"place-info-container\">
                     <input
-                        class=\"button-black fil-container\"
-                        type=\"button\"
-                        value=\"Пойти!\"
-                        onClick='location.href=\"https://yandex.ru/maps/org/{$yandexMapId}\"'>
+                        type=\"button\" class=\"button-black fil-container\"
+                        value=\"Пойти!\" accesskey=\"o\"
+                        onClick='location.href=\"https://yandex.ru/maps/org/{$yandexMapId}\"'
+                    >
+                    <input type=\"button\" class=\"text-button mobile-only\" accesskey=\"y\"
+                        value=\"Открыть в картах\" onClick='location.href=\"yandexmaps://maps.yandex.ru/?oid={$yandexMapId}\"'>
 
-                    <input
-                        class=\"text-button mobile-only\"
-                        type=\"button\"
-                        value=\"Открыть в картах\"
-                        onClick='location.href=\"yandexmaps://maps.yandex.ru/?oid={$yandexMapId}\"'>
                     <div class=\"place-description\">
                         <p>{$description}</p>
                     </div>
@@ -125,10 +136,7 @@ function getMain($articleName, $workTime, $weekendDays, $addressName, $yandexMap
                 
                 <!-- MAP -->
                 <div class=\"place-map-container\">
-                    <a href=\"https://yandex.ru/maps/org/lapshichnaya_s_malenkim_tsvetkom_v_bolshom_okne/83581541986/?utm_medium=mapframe&utm_source=maps\" class=\"map-placeholder\">
-                        Лапшичная с маленьким цветком в большом окне
-                    </a>
-                    <iframe src=\"{$mapLink}\" allowfullscreen=\"true\" class=\"map-container__frame\"></iframe>
+                    <iframe src=\"{$mapLink}\" allowfullscreen=\"true\" class=\"map-container__frame\" accesskey=\"m\"></iframe>
                     <div class=\"capsule-container map-address-capsule\">{$addressName}</div>
                 </div>
                 <!-- /MAP -->
