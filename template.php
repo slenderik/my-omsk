@@ -120,7 +120,7 @@ function getMain($articleName, $workTime, $weekendDays, $addressName, $yandexMap
                 <img class='place-image-container__image' src='{$imagePath[0]}' alt='{$altText[0]}'>
 
                 <!-- Back button -->
-                <a href='{$mainPageLink}' accesskey='b'>
+                <a href='javascript:history.back()'>
                     <div class='button-back'>
                         <img class='button-back__image'src='assets/images/back.svg'>  
                     </div>
