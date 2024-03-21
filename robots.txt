@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+Host: my-omsk.ru
+Sitemap: http://my-omsk.ru/sitemap.xml
