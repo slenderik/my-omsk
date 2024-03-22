@@ -85,7 +85,8 @@ function getGoogleAnalytics() {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-L90RFB24P5');
-</script>";
+</script>
+<!-- /Google tag (gtag.js) -->";
     return $text;
 }
 
