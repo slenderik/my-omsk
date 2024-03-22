@@ -77,6 +77,18 @@ function getYandexMetrika() {
         return $text;
 }
 
+function getGoogleAnalytics() {
+    $text = "<!-- Google tag (gtag.js) -->
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-L90RFB24P5'></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L90RFB24P5');
+</script>";
+    return $text;
+}
+
 
 function getHead($articleName, ...$headBlocks) {
     $text = "
@@ -248,7 +260,8 @@ function create_or_update_place($placeId) {
         getFavicon(),
         getPreloads(),
         getOpenGraph(),
-        getYandexMetrika()
+        getYandexMetrika(),
+        getGoogleAnalytics()
     );
     $siteText .= getHeader();
     $siteText .= getMain(
