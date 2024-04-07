@@ -1,4 +1,4 @@
-![Главная картинка бро](https://raw.githubusercontent.com/slenderik/my-omsk/0c607bf2bc57025ed5fd6e6de85f0a87121d4fe5/header.png)
+![Главная картинка бро](https://raw.githubusercontent.com/slenderik/my-omsk/0c607bf2bc57025ed5fd6e6de85f0a87121d4fe5/Header.png)
 
 # Ссылки
 Site — https://my-omsk.ru/
