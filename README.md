@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href=""> 
+  <a href="https://my-omsk.ru/"> 
     <img alt="Это логотип бро" src="https://raw.githubusercontent.com/slenderik/my-omsk/c18bcba41b7c8317397c3aba48bf1617097678b0/logo_black.svg">
   </a>
 </h1>
@@ -14,7 +14,7 @@
 
 <a href="https://www.figma.com/proto/EFZdCvflMiQ7V7lMqf7Zhy/my-omsk?page-id=403%3A95&type=design&node-id=427-829&viewport=5727%2C883%2C0.75&t=5FIsaZTpEumJuUix-1&scaling=min-zoom&starting-point-node-id=427%3A829&show-proto-sidebar=1&mode=design" target="_blank">Конкурсы<a> — на следующий год нас попросили продолжить работу над проектом, чтобы отправлять её на разные конкурсные программы. Мы согласились, относясь к этому как пет-проекту.
 
-<a href="https://github.com/slenderik/my-omsk" target="_blank">Курсовая работа<a> — теперь, это моя курсовая работа.
+<a href="https://github.com/slenderik/my-omsk" target="_blank">Курсовая работа<a> — теперь, это моя курсовая работа. Ну и часть моего портфолио.
 
 
 
