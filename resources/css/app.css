@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Roboto';
+    src: local(Roboto Regular), local(roboto-regular),
+        url('/fonts/roboto-regular/roboto-regular.ttf') format('ttf'),
+        url('/fonts/roboto-regular/roboto-regular.woff') format('woff'),
+        url('/fonts/roboto-regular/roboto-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0px;
+}
+
+
+:root {
+    --color-black: black;
+    --color-white: white;
+    --color-gray: #CDCDCD;
+    --color-background: #F5F8FA;
+
+    --color-telegram: #2AABEE;
+    --color-vkontakte: #0077FF;
+    --color-light-blue: #C1E0FD;
+    --color-light-green: #DAFFCD;
+    --color-light-yelow: #FFF8BE;
+    --color-light-orange: #FFCF86;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-background);
+}
+
+
+/* PLACES */
+.place-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 1000px) {
+        min-width: 400px;
+    }
+}
+
+.place-card__image {
+    width: 100%;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    border: 1px solid var(--color-black);
+}
