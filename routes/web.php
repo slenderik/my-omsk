@@ -16,19 +16,28 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
+// JUST WELCOME
 Route::get('/', function () {
     return view('welcome');
 });
 
+// EVENTS
+Route::get('/event/{name}', [EventController::class, 'event']);
+
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+Route::post('/events', [EventController::class, 'new'])->name('events.new');
+// Route::get('/events', [EventController::class, 'events'])->name('events');
+
+Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
 
 
-Route::get('/event/{name}', [EventController::class, 'events']);
-Route::get('/events', [EventController::class, 'events'])->name('events');
 
+// MAIN PAGE
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// PROFILE
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

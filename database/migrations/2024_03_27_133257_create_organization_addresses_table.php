@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('organization_addresses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('organization_id')->constrained()->onDelete('cascade');
+            $table->string('address_title');
+            $table->string('yandex_maps_link');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('organization_addresses');
     }
 };

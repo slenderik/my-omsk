@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local(Roboto Regular), local(roboto-regular),
+        url('/fonts/roboto-regular/roboto-regular.ttf') format('ttf'),
+        url('/fonts/roboto-regular/roboto-regular.woff') format('woff'),
+        url('/fonts/roboto-regular/roboto-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0px;
+}
+
+
+:root {
+    --color-black: black;
+    --color-gray: #5E6278;
+    --color-white: white;
+
+    --color-background: #F5F8FA;
+
+    --color-telegram: #2AABEE;
+    --color-vkontakte: #0077FF;
+
+    --color-light-blue: #C1E0FD;
+    --color-light-green: #DAFFCD;
+    --color-light-yelow: #FFF8BE;
+    --color-light-orange: #FFCF86;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-background);
+}
+
+.wrapper {
+    width: 60%;
+    margin: auto;
+    border: solid red 1px;
+}
+
+/* EVENT CARD */
+.event-card {
+    width: 300px;
+    height: 320px;
+    border-radius: 8px;
+    border-collapse: separate; 
+}
+
+.event-card__img {
+    height: 300px;
+    width: 100%;
+    min-width: 300px;
+    background-color: aqua;
+}
+
+.event-cont__bottom-part {
+    height: 20px;
+    width: 100%;
+
+    color: var(--color-white);
+    background-color: var(--color-black);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* EVENT CARD */
+
+.event-cont__img-like {
+
+}
+
+.events-list-container {
+    display: flex;
+    flex-wrap: wrap;
+}

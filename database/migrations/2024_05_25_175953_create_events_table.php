@@ -15,11 +15,14 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('link')->unique();
+            $table->string('english_name')->unique();
 
             $table->string('title');
             $table->string('description');
             $table->string('background_colour');
+
+            $table->foreignId('organization_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('organization_addresses_id')->nullable()->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });

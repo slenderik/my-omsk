@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('event_tags', function (Blueprint $table) {
-            $table->foreignId('event_id')->constrained()->onDelete('cascade');
-            $table->string('title');
-            $table->string('link')->nullable();
+        Schema::create('organizations', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_tags');
+        Schema::dropIfExists('organizations');
     }
 };
