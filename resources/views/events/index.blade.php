@@ -9,9 +9,14 @@
         @foreach ($events as $event)
 
             {{-- EVENT CARD --}}
+            <div class="event-card">
                 <a href="/event/{{ $event->id }}">
-                    <img src="" alt="THIS IS IMAGE IMAGINE THIS BRO" class="event-card__img">
-                    <div class="event-cont__bottom-part">
+                    @if ($event->eventImage)
+                        <img src="{{ asset('storage/images/'.$event->eventImage->image_name) }}" alt="{{ $event->eventImage->image_alt }}" class="event-card__img">
+                    @else
+                        <img src="{{ asset('default-image-path') }}" alt="Default Image" class="event-card__img">
+                    @endif
+                    <div class="event-card__bottom-part">
                         <p>{{ $event->title }}</p>
                     </div>
                     <svg></svg>

@@ -21,4 +21,10 @@ class Event extends Model
         'description',
         'background_colour',
     ];
+    
+    // Define the relationship
+    public function eventImage()
+    {
+        return $this->hasOne(EventImage::class);
+    }
 }

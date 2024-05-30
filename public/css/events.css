@@ -45,7 +45,6 @@ body {
     width: 300px;
     height: 320px;
     border-radius: 8px;
-    border-collapse: separate; 
 }
 
 .event-card__img {
@@ -55,7 +54,7 @@ body {
     background-color: aqua;
 }
 
-.event-cont__bottom-part {
+.event-card__bottom-part {
     height: 20px;
     width: 100%;
 
@@ -68,11 +67,10 @@ body {
 }
 /* EVENT CARD */
 
-.event-cont__img-like {
-    
-}
-
 .events-list-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 30px;
+    
+    justify-content: space-between;
 }
