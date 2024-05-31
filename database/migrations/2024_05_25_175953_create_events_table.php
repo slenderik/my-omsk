@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('english_name')->unique();
 
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->string('background_colour');
 
             $table->foreignId('organization_id')->nullable()->constrained()->onDelete('cascade');
