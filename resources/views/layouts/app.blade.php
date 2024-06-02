@@ -15,15 +15,30 @@
 
         {{-- CSS --}}
         <link rel="stylesheet" href="{{ asset('css/events.css') }}">
+
+        {{-- jQuery if its --}}
+        @stack('head-scripts')
     </head>
     <body>
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main class="wrapper">
-                {{ $slot }}
-            </main>
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">    
+                        <div class="p-6 text-gray-900 dark:text-gray-100">
+            
+                            <main class="wrapper">
+                                {{ $slot }}
+                            </main>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </body>
+    @stack('body-scripts')
 </html>
