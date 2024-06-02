@@ -5,32 +5,28 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">    
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <div class="events-list-container">
-                        @foreach ($events as $event)
+    <div class="events-list-container">
+        @foreach ($events as $event)
 
-                            {{-- EVENT CARD --}}
-                            <a href="/event/{{ $event->id }}">
-                            <div class="event-card" style="background-color: {{ $event->background_colour }}">
-                                    @if ($event->eventImage)
-                                        <img src="{{ asset('storage/images/'.$event->eventImage->image_name) }}" alt="{{ $event->eventImage->image_alt }}" class="event-card__img">
-                                    @else
-                                        <img src="{{ asset('default-image-path') }}" alt="Default Image" class="event-card__img">
-                                    @endif
-                                    <div class="event-card__bottom-part">
-                                        <p>{{ $event->title }}</p>
-                                    </div>
-                                    <svg></svg>
-                                </div>
-                            </a>
-                            
-                            @endforeach
+            {{-- EVENT CARD --}}
+            <a href="/event/{{ $event->id }}">
+                <div class="event-card" style="background-color: {{ $event->background_colour }}">
+                    @if ($event->eventImage)
+                        <img
+                            class="event-card__img"
+                            alt="{{ $event->eventImage->image_alt }}"
+                            src="{{ asset('storage/images/'.$event->eventImage->image_name) }}"
+                        >
+                    @else
+                        <img src="{{ asset('default-image-path') }}" alt="Default Image" class="event-card__img">
+                    @endif
+                    <div class="event-card__bottom-part">
+                        <p>{{ $event->title }}</p>
                     </div>
+                    <svg></svg>
                 </div>
-            </div>
-        </div>
+            </a>
+            
+        @endforeach
     </div>
 </x-app-layout>
