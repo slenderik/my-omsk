@@ -11,7 +11,7 @@ class Event extends Model
 
 
     /**
-     * The attributes that are mass assignable.
+     * Атрибуты, которые ожно назначать при создании.
      *
      * @var array<int, string>
      */
@@ -20,11 +20,24 @@ class Event extends Model
         'title',
         'description',
         'background_colour',
+        'organization',
+        'organization_address',
     ];
     
-    // Define the relationship
+
+    // Определите зависимость
     public function eventImage()
     {
         return $this->hasOne(EventImage::class);
+    }
+
+    public function organization()
+    {
+        return $this->hasOne(Organization::class);
+    }
+
+    public function organizationAddress()
+    {
+        return $this->hasOne(organizationAddress::class);
     }
 }

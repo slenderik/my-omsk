@@ -28,6 +28,16 @@
                         {{ __('Добавить ивент') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('organizations.index')" :active="request()->routeIs('organization.index')">
+                        {{ __('Организации') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('organizations.create')" :active="request()->routeIs('organization.create')">
+                        {{ __('Добавить организацию') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

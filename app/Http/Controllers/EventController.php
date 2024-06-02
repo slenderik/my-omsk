@@ -35,6 +35,7 @@ class EventController extends Controller
             'background_colour' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'image_alt' => 'required|max:255',
+            'organization' => 'required|max:255',
         ]);
         
         // Сохранение фото
@@ -44,7 +45,7 @@ class EventController extends Controller
         // Создание ивента
         $event = Event::create($request->all());
 
-        // Сохранение пути к изображению в базе данных или другие действия
+        // Сохранение пути к изображению в базе данных
         $eventId = $event->id;
         $imageAlt = $request->image_alt;
         
@@ -53,9 +54,10 @@ class EventController extends Controller
             'image_name' => $imageName,
             'image_alt' => $imageAlt,
         ];
+        
         EventImage::create($imageRequest);
         
-        // Перенаправление на какую-либо страницу (например, список книг)
+        // Перенаправление на главную
         return redirect()->route('events.index');
     }
 
