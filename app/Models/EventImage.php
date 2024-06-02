@@ -11,7 +11,7 @@ class EventImage extends Model
 
 
     /**
-     * The attributes that are mass assignable.
+     * Атрибуты, которые ожно назначать при создании.
      *
      * @var array<int, string>
      */
@@ -22,13 +22,14 @@ class EventImage extends Model
     ];
 
     /**
-     * Indicates if the model should be timestamped.
+     * Указывает, должна ли модель иметь метку времени (timestamps).
      *
      * @var bool
      */
     public $timestamps = false;
 
-    // Define the inverse relationship
+    
+    // Определите обратную зависимость
     public function event()
     {
         return $this->belongsTo(Event::class);
