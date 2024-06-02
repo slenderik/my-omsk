@@ -1,13 +1,15 @@
 <div>
-    <x-text-input id="{{ $inputId }}" name="{{ $inputId }}" type="text" class="mt-1 block w-full" />
-    <ul id="{{ $suggestionId }}" class="list-group"></ul>
+    <div>
+        <x-text-input id="select-search" type="text" class="mt-1 block w-full" />
+        <select id="{{ $inputId }}" name="{{ $inputId }}" class="list-group"></select>
+    </div>
     <x-input-error :messages="$errors->get('{{ $inputId }}')" class="mt-2" />
 </div>
 
 @push('body-scripts')
 <script>
     $(document).ready(function() {
-        $('#{{ $inputId }}').on('input', function() {
+        $('#select-search').on('input', function() {
             let query = $(this).val();
 
             if (query !== '') {
@@ -16,24 +18,24 @@
                     type: 'GET',
                     data: { query: query },
                     success: function(data) {
-                        let suggestions = $('#{{ $suggestionId }}');
-                        suggestions.empty();
+                        let selectMenu = $('#{{ $inputId }}');
+                        selectMenu.empty();
 
                         if (data.length === 0) {
-                            suggestions.append('<li class="list-group-item">Нет результаторв. Нажмите Enter чтобы создать новый '+ $(this).val() + '.</li>');
+                            selectMenu.append('<option class="list-group-item">Нет результатов, нажмите Enter чтобы создать новый элемент.</option>');
                         } else {
                             $.each(data, function(key, value) {
-                                suggestions.append('<li class="list-group-item" id=' + value.id + '>' + value.name + '</li>');
+                                selectMenu.append('<option class="list-group-item" value='+ value.id +'>' + value.name + '</option>');
                             });
                         }
                     }
                 });
             } else {
-                $('#{{ $suggestionId }}').empty();
+                $('#{{ $inputId }}').empty();
             }
         });
 
-        $('#{{ $inputId }}').on('keypress', function(e) {
+        $('#select-search').on('keypress', function(e) {
             if (e.which == 13) {
                 let itemName = $(this).val();
                 $.ajax({
@@ -44,17 +46,11 @@
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(data) {
-                        $('#{{ $suggestionId }}').empty();
-                        alert('Item created: ' + data.name);
+                        $('#{{ $inputId }}').empty();
+                        alert('Создан: ' + data.name);
                     }
                 });
             }
-        });
-
-        $(document).on('click', '.list-group-item', function() {
-            $('#{{ $inputId }}').val($(this).text());
-            $('#{{ $inputId }}').value = $(this).attr('id');
-            $('#{{ $suggestionId }}').empty();
         });
     });
 </script>

@@ -114,3 +114,12 @@ body {
 
     }
 }
+
+
+/* ORGANIZATOR CARD */
+
+.organizator-card {
+    background-color: var(--color-background);
+    border-radius: 8px;
+    
+}

@@ -18,7 +18,7 @@ class OrganizationController extends Controller
     public function items(Request $request)
     {
         $query = $request->input('query');
-        $organizations = Organization::where('name', 'LIKE', "%{$query}%")->get();
+        $organizations = Organization::where('name', 'LIKE', "%{$query}%")->select('id', 'name')->get();
         return response()->json($organizations);
     }
 

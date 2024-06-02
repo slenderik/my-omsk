@@ -20,7 +20,7 @@ class Event extends Model
         'title',
         'description',
         'background_colour',
-        'organization',
+        'organization_id',
         'organization_address',
     ];
     
