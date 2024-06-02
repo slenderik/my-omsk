@@ -4,15 +4,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OrganizationController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| Здесь вы можете зарегистрировать веб-маршруты для вашего приложения. Эти
+| маршруты загружаются RouteServiceProvider и все они будут быть отнесен к группе
+| промежуточного программного обеспечения «Интернет». Сделайте что-нибудь великое!
 |
 */
 
@@ -21,21 +22,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // EVENTS
-Route::get('/event/{name}', [EventController::class, 'event']);
+Route::post('api/events', [EventController::class, 'new'])->name('events.new');
 
+
+Route::get('/event/{id}', [EventController::class, 'event']);
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::post('/events', [EventController::class, 'new'])->name('events.new');
-// Route::get('/events', [EventController::class, 'events'])->name('events');
-
 Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+// Route::post('/events/add', [EventController::class, 'new'])->name('events.new');
 
+
+// ORGANIZATIONS
+Route::get('/api/organization', [OrganizationController::class, 'items']);
+Route::post('/api/organization', [OrganizationController::class, 'store']);
+Route::post('/organizations/add', [OrganizationController::class, 'new'])->name('organizations.new');
+
+
+Route::get('/organization/{id}', [OrganizationController::class, 'organization']);
+Route::get('/organizations', [OrganizationController::class, 'index'])->name('organizations.index');
+Route::get('/organizations/create', [OrganizationController::class, 'create'])->name('organizations.create');
 
 
 // MAIN PAGE
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 // PROFILE
 Route::middleware('auth')->group(function () {
