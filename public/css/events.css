@@ -1,11 +1,28 @@
 @font-face {
     font-family: 'Roboto';
+    src: local(Roboto light), local(roboto-light),
+        url('/fonts/roboto-light/roboto-light.ttf') format('ttf'),
+        url('/fonts/roboto-light/roboto-light.woff') format('woff'),
+        url('/fonts/roboto-light/roboto-light.woff2') format('woff2');
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: 'Roboto';
     src: local(Roboto Regular), local(roboto-regular),
         url('/fonts/roboto-regular/roboto-regular.ttf') format('ttf'),
         url('/fonts/roboto-regular/roboto-regular.woff') format('woff'),
         url('/fonts/roboto-regular/roboto-regular.woff2') format('woff2');
     font-weight: normal;
-    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local(Roboto Bold), local(roboto-bold),
+        url('/fonts/roboto-bold/roboto-bold.ttf') format('ttf'),
+        url('/fonts/roboto-bold/roboto-bold.woff') format('woff'),
+        url('/fonts/roboto-bold/roboto-bold.woff2') format('woff2');
+    font-weight: bold;
 }
 
 * {
@@ -121,5 +138,9 @@ body {
 .organizator-card {
     background-color: var(--color-background);
     border-radius: 8px;
+    padding: 10px;
     
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

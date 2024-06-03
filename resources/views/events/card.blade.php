@@ -17,12 +17,6 @@
     <p class="event-page__description">{{ $event->description }}</p>
 
     @if ($event->organization)
-        <a href="/event/{{ $event->organization->id }}">
-            <div class="organizator-card">
-                <img src="" alt="">
-                <p>{{ $event->organization->title }}</p>
-                <p>{{ $event->organization->description }}</p>
-            </div>
-        </a>
+        <x-organizator-card :organization="$event->organization" />
     @endif
 </x-app-layout>

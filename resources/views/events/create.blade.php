@@ -44,7 +44,7 @@
             <x-input-label for="image_alt" :value="__('Описание картинки')" />
             <x-text-input id="image_alt" name="image_alt" type="text" class="mt-1 block w-full" placeholder="Женщина стоит у магазина"/>
             <x-input-error :messages="$errors->get('image_alt')" class="mt-2" />
-            </div>
+        </div>
             
         <div>     
             <x-input-label for="organization_id" :value="__('Организация')" />

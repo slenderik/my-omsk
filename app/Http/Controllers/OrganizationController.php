@@ -14,28 +14,6 @@ class OrganizationController extends Controller
         return view('organizations.index', compact('organizations'));
     }
 
-    
-    public function items(Request $request)
-    {
-        $query = $request->input('query');
-        $organizations = Organization::where('name', 'LIKE', "%{$query}%")->select('id', 'name')->get();
-        return response()->json($organizations);
-    }
-
-    public function store(Request $request)
-    {   
-        $name = $request->input('name');
-        $description = 'Описание будет добавлено позже.';
-
-        $organizationRequest =[
-            'name' => $name,
-            'description' => $description
-        ];
-
-        $organization = Organization::create($organizationRequest);
-        return response()->json($organization);
-    }
-
     // public function organization($id) {
     //     $organization = Organization::find($id);
     //     return view('organizations.card', compact('organization'));
@@ -44,5 +22,43 @@ class OrganizationController extends Controller
     public function create()
     {
         return view('organizations.create');
+    }
+
+    // API
+    public function items(Request $request)
+    {
+        $query = $request->input('query');
+        $organizations = Organization::where('name', 'LIKE', "%{$query}%")->select('id', 'name')->get();
+        return response()->json($organizations);
+    }
+
+    public function new(Request $request)
+    {   
+        // Валидация данных
+        $validatedData = $request->validate([
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        // Сохранение фото
+        $logoName = time() . '_' . pathinfo($request->logo->getClientOriginalName(), PATHINFO_FILENAME) . '.' . $request->logo->getClientOriginalExtension();
+        $request->logo->storeAs('images', $logoName, 'public');
+
+        // Создание ивента
+        $organization = Organization::create([
+            'name' => $validatedData['name'],
+            'logo_name' => $logoName,
+            'description' => $validatedData['description'],
+        ]);
+
+        // // Сохранение пути к изображению в базе данных
+        // OrganizationAddress::create([
+        //     'event_id' => $event->id,
+        //     'logo_name' => $imageName
+        // ]);
+        
+        // Перенаправление на главную
+        return redirect()->route('organizations.index');
     }
 }

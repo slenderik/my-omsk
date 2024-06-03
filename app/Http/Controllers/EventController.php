@@ -39,7 +39,7 @@ class EventController extends Controller
         ]);
 
         // Сохранение фото
-        $imageName = time().'.'.$request->image->extension();
+        $imageName = time() . '_' . pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME) . '.' . $request->image->getClientOriginalExtension();
         $request->image->storeAs('images', $imageName, 'public');
 
         // Создание ивента
@@ -48,8 +48,6 @@ class EventController extends Controller
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
             'background_colour' => $validatedData['background_colour'],
-            'image' => $imageName,
-            'image_alt' => $validatedData['image_alt'],
             'organization_id' => $validatedData['organization_id'],
         ]);
 

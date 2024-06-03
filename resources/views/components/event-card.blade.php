@@ -1,3 +1,5 @@
+@props(['event'])
+
 {{-- event card --}}
 <a href="/event/{{ $event->id }}">
     <div class="event-card" style="background-color: {{ $event->background_colour }}">

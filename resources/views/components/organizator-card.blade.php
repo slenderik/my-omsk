@@ -1,3 +1,5 @@
+@props(['organization'])
+
 {{-- organization card --}}
 <a href="/event/{{ $organization->id }}">
     <div class="organizator-card">
