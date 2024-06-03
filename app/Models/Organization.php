@@ -24,11 +24,11 @@ class Organization extends Model
     // Определите зависимость
     public function events()
     {
-        return $this->belongsTo(Event::class);
+        return $this->hasOne(Event::class);
     }
-    // Определите зависимость
+    
     public function organizationAddress()
     {
-        return $this->belongsTo(OrganizationAddress::class);
+        return $this->hasOne(OrganizationAddress::class);
     }
 }

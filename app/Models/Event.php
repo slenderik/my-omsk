@@ -33,11 +33,11 @@ class Event extends Model
 
     public function organization()
     {
-        return $this->hasOne(Organization::class);
+        return $this->belongsTo(Organization::class);
     }
 
     public function organizationAddress()
     {
-        return $this->hasOne(organizationAddress::class);
+        return $this->belongsTo(organizationAddress::class);
     }
 }
