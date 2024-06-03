@@ -6,11 +6,7 @@
     </x-slot>
 
     @if ($event->eventImage)
-        <img
-            class="event-page__img"
-            alt="{{ $event->eventImage->image_alt }}"
-            src="{{ asset('storage/images/'.$event->eventImage->image_name) }}"
-        >
+        <img class="event-page__img" alt="{{ $event->eventImage->image_alt }}" src="{{ asset('storage/images/'.$event->eventImage->image_name) }}">
     @endif
 
     <h1 class="event-page__title">{{ $event->title }}</h1>
