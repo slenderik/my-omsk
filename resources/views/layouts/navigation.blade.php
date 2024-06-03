@@ -25,7 +25,7 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('events.create')" :active="request()->routeIs('events.create')">
-                        {{ __('Добавить ивент') }}
+                        {{ __('Создать ивент') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
