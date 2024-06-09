@@ -44,6 +44,8 @@
     --color-light-green: #DAFFCD;
     --color-light-yelow: #FFF8BE;
     --color-light-orange: #FFCF86;
+
+    --color-yellow: #F2BB05;
 }
 
 body {
@@ -143,4 +145,38 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+
+.main__content {
+    max-width: 600px;
+}
+
+.main__title {
+    font-size: 64px;
+}
+
+.button-primary {
+    border-radius: 8px;
+    width: 200px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    background-color: black;
+
+    
+    @media (min-width: 1200px) {
+        font-weight: bol    d;
+        font-size: 20px;
+        width: 340px;
+        height: 60px;
+    }
+}
+
+.primary-color {
+    color: var(--color-yellow);
 }

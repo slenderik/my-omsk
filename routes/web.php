@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrganizationController;
@@ -17,19 +18,17 @@ use App\Http\Controllers\OrganizationController;
 |
 */
 
-// JUST WELCOME
-Route::get('/', function () {
-    return view('welcome');
-});
+// WELCOME PAGE
+Route::get('/', [Controller::class, 'show']);
+
 
 // VIEW EVENTS
 // Здесь как раз и есть опарции Read - просмотра.
 Route::get('/events', [EventController::class, 'index'])->name('events');
 Route::get('/event/{id}', [EventController::class, 'event'])->name('event');
-
 // EDIT PAGES
-Route::get('/event/edit/{id}', [EventController::class, 'edit'])->name('event.edit');
 Route::get('/event/create', [EventController::class, 'create'])->name('event.create');
+Route::get('/event/edit/{id}', [EventController::class, 'edit'])->name('event.edit');
 Route::get('/event/delete/{id}', [EventController::class, 'delete'])->name('event.delete');
 
 // read - events(index)
