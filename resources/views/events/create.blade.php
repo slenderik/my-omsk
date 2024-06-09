@@ -7,7 +7,7 @@
 
     <x-jquery />
 
-    <form action="{{ route('events.new') }}" method="POST" class="mt-6 space-y-6" enctype="multipart/form-data">
+    <form action="{{ route('api.event.create') }}" method="POST" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
 
         <div>
