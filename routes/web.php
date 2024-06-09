@@ -22,15 +22,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// VIEW EVENTS
+// Здесь как раз и есть опарции Read - просмотра.
+Route::get('/events', [EventController::class, 'index'])->name('events');
+Route::get('/event/{id}', [EventController::class, 'event'])->name('event');
 
-// EVENTS
-Route::post('api/events', [EventController::class, 'new'])->name('events.new');
+// EDIT PAGES
+Route::get('/event/edit/{id}', [EventController::class, 'edit'])->name('event.edit');
+Route::get('/event/create', [EventController::class, 'create'])->name('event.create');
+Route::get('/event/delete/{id}', [EventController::class, 'delete'])->name('event.delete');
 
-
-Route::get('/event/{id}', [EventController::class, 'event']);
-Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
-// Route::post('/events/add', [EventController::class, 'new'])->name('events.new');
+// read - events(index)
+// read one - event(card)
+// create - new
+// edit - upadte
+// delete - destroy
 
 
 // ORGANIZATIONS
@@ -42,13 +48,6 @@ Route::post('/organizations/add', [OrganizationController::class, 'new'])->name(
 Route::get('/organization/{id}', [OrganizationController::class, 'organization']);
 Route::get('/organizations', [OrganizationController::class, 'index'])->name('organizations.index');
 Route::get('/organizations/create', [OrganizationController::class, 'create'])->name('organizations.create');
-
-
-// MAIN PAGE
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 
 // PROFILE
 Route::middleware('auth')->group(function () {

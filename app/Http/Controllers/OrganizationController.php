@@ -32,7 +32,7 @@ class OrganizationController extends Controller
         return response()->json($organizations);
     }
 
-    public function new(Request $request)
+    public function store(Request $request)
     {   
         // Валидация данных
         $validatedData = $request->validate([
