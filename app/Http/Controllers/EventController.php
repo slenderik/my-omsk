@@ -12,7 +12,6 @@ class EventController extends Controller
 {
     public function index()
     {
-        // $events = Event::all();
         $events = Event::with('eventImage')->get();
         return view('events.index', compact('events'));
     }
@@ -22,7 +21,7 @@ class EventController extends Controller
         return view('events.card', compact('event'));
     }
 
-    // VIEW EDTI PAGES
+    // VIEW EDIT PAGES
     public function create()
     {
         return view('events.create');
@@ -39,7 +38,7 @@ class EventController extends Controller
         $event = Event::find($id);
         return view('events.delete', compact('event'));
     }
-    //
+    // /VIEW EDIT PAGES
 
     // API EVENTS FUNCTIONS
     public function store(Request $request)

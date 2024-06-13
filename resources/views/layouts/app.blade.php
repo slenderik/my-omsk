@@ -21,9 +21,9 @@
     </head>
     <body>
         @if (session('success'))
-            <div class="alert alert-success">
+            <dialog class="alert alert-success">
                 {{ session('success') }}
-            </div>
+            </dialog>
         @endif
 
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
