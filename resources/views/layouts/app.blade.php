@@ -16,8 +16,12 @@
         {{-- CSS --}}
         <link rel="stylesheet" href="{{ asset('css/events.css') }}">
 
-        {{-- jQuery if its --}}
+        {{-- For links to lib like jQuery --}}
         @stack('head-scripts')
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     </head>
     <body>
         @if (session('success'))
@@ -34,11 +38,9 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">    
                         <div class="p-6 text-gray-900 dark:text-gray-100">
-            
                             <main class="wrapper">
                                 {{ $slot }}
                             </main>
-
                         </div>
                     </div>
                 </div>

@@ -1,29 +1,58 @@
 @font-face {
-    font-family: 'Roboto';
+    font-family: "Roboto", sans-serif;
     src: local(Roboto light), local(roboto-light),
-        url('/fonts/roboto-light/roboto-light.ttf') format('ttf'),
+        url('/public/fonts/roboto-light/roboto-light.ttf') format('ttf'),
         url('/fonts/roboto-light/roboto-light.woff') format('woff'),
         url('/fonts/roboto-light/roboto-light.woff2') format('woff2');
-    font-weight: lighter;
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Roboto';
+    font-family: "Roboto", sans-serif;
     src: local(Roboto Regular), local(roboto-regular),
         url('/fonts/roboto-regular/roboto-regular.ttf') format('ttf'),
         url('/fonts/roboto-regular/roboto-regular.woff') format('woff'),
         url('/fonts/roboto-regular/roboto-regular.woff2') format('woff2');
     font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Roboto';
+    font-family: "Roboto", sans-serif;
     src: local(Roboto Bold), local(roboto-bold),
         url('/fonts/roboto-bold/roboto-bold.ttf') format('ttf'),
         url('/fonts/roboto-bold/roboto-bold.woff') format('woff'),
         url('/fonts/roboto-bold/roboto-bold.woff2') format('woff2');
     font-weight: bold;
+    font-style: normal;
 }
+
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
 
 * {
     margin: 0px;
@@ -101,8 +130,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    
-    /* justify-content: space-between; */
 }
 
 
@@ -126,26 +153,42 @@ body {
 }
 
 .event-page__description {
-    font-weight: lighter;
-
     @media (min-width: 700px) {
         max-width: 60%;
 
     }
 }
 
+.event-page__buttons {
+    margin-top: 1rem;
+}
+
 
 /* ORGANIZATOR CARD */
 
 .organizator-card {
-    background-color: var(--color-background);
+    margin-top: 1rem;
+    background-color: var(--color-white);
     border-radius: 8px;
     padding: 10px;
     
+    gap: 10px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    border: solid #0077FF 1px;
 }
+
+.organizator-card__description {
+    font-weight: 300;
+}
+
+.organizator-card__image {
+    width: 50px;
+    height: 50px;
+}
+
+
 
 
 .main__content {

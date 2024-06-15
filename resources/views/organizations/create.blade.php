@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <form action="{{ route('organizations.new') }}" method="POST" class="mt-6 space-y-6" enctype="multipart/form-data">
+    <form action="{{ route('api.organization.create') }}" method="POST" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
 
         <div>

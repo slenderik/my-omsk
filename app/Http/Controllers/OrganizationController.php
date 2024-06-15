@@ -14,10 +14,10 @@ class OrganizationController extends Controller
         return view('organizations.index', compact('organizations'));
     }
 
-    // public function organization($id) {
-    //     $organization = Organization::find($id);
-    //     return view('organizations.card', compact('organization'));
-    // }
+    public function organization($id) {
+        $organization = Organization::find($id);
+        return view('organizations.card', compact('organization'));
+    }
 
     public function create()
     {

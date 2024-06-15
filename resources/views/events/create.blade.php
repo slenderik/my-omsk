@@ -52,7 +52,7 @@
                 id="select-search"
                 type="text"
                 class="mt-1 block w-full"
-                placeholder="Поиск по названию, выбор ниже."
+                placeholder="Введите название организации"
             />
             <select id="organization_id" name="organization_id" class="list-group">
                 <option value="">Выберите организацию</option>
@@ -87,7 +87,7 @@
                 }
 
                 $.ajax({
-                    url: '/api/organization',
+                    url: '/api/organization/items',
                     type: 'GET',
                     data: { query: query },
                     success: function(data) {
@@ -109,7 +109,7 @@
                 if (e.which == 13) {
                     let itemName = $(this).val();
                     $.ajax({
-                        url: '/api/organization',
+                        url: '/api/organization/items',
                         type: 'POST',
                         data: {
                             name: itemName,

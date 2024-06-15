@@ -31,8 +31,12 @@
         <x-organizator-card :organization="$event->organization" />
     @endif
 
+    <div class="event-page__buttons">
+        <x-primary-button>Пойти</x-primary-button>
+    </div>
 
-    {{-- DELETE MODAl --}}
+
+    {{-- DELETE MODAL --}}
     @if (true)
         <x-modal name="confirm-event-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
             <form method="post" action="{{ route('api.event.delete', ['id' => $event->id]) }}" class="p-6">
@@ -44,7 +48,7 @@
                 </h2>
         
                 <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    {{ __('Если нужно скрыть - отправьте в архив.') }}
+                    {{ __('Убедитесь, хотите ли вы удалить ивент. Он сам удалится, когда время придёт. ') }}
                 </p>
         
                 <div class="mt-6">

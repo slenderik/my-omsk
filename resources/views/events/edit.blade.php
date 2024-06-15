@@ -53,7 +53,7 @@
                 id="select-search"
                 type="text"
                 class="mt-1 block w-full"
-                placeholder="Поиск по названию, выбор ниже."
+                placeholder="Поиск по названию"
             />
             <select id="organization_id" name="organization_id" class="list-group">
                 <option value="{{ $event->organization->id }}">
@@ -91,7 +91,7 @@
                 }
 
                 $.ajax({
-                    url: '/api/organization',
+                    url: '/api/organization/items',
                     type: 'GET',
                     data: { query: query },
                     success: function(data) {
