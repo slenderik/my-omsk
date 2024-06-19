@@ -23,6 +23,6 @@ class OrganizatorCard extends Component
      */
     public function render()
     {
-        return view('components.organizator-card');
+        return view('elements.organizator-card');
     }
 }
