@@ -135,7 +135,11 @@ body {
 
 /* EVENT PAGE */
 .event-page {
+    position: relative;
 
+    @media (max-width: 700px) {
+        
+    }
 }
 
 .event-page__img {
@@ -176,7 +180,10 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: solid #0077FF 1px;
+
+    -webkit-box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.25);
 }
 
 .organizator-card__description {
@@ -222,4 +229,11 @@ body {
 
 .primary-color {
     color: var(--color-yellow);
+}
+
+
+
+.tag-container {
+    padding: 3px 10px;
+    border-radius: 50px;
 }
