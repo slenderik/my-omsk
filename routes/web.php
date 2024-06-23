@@ -30,7 +30,7 @@ Route::get('/event/create', [EventController::class, 'create'])->name('event.cre
 Route::get('/event/edit/{id}', [EventController::class, 'edit'])->name('event.edit');
 Route::get('/event/delete/{id}', [EventController::class, 'delete'])->name('event.delete');
 
-Route::get('/event/{id}', [EventController::class, 'event'])->name('event');
+Route::get('/event/{id}', [EventController::class, 'view'])->name('event');
 // read - events(index)
 // read one - event(card)
 // create - new

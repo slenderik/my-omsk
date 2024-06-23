@@ -16,9 +16,9 @@ class EventController extends Controller
         return view('events.index', compact('events'));
     }
 
-    public function event($id) {
+    public function view($id) {
         $event = Event::find($id);
-        return view('events.card', compact('event'));
+        return view('events.page', compact('event'));
     }
 
     // VIEW EDIT PAGES
@@ -139,7 +139,7 @@ class EventController extends Controller
         }
 
         // Перенаправление на страницу просмотра события
-        return redirect()->route('events', $event->id);
+        return redirect()->route('page', $event->id);
     }
 
 
