@@ -25,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()  
     {
         Blade::component('components.input-autocomplete', 'input-autocomplete');
-        Blade::component('components.jquery', 'jquery');
+        Blade::component('elements.jquery', 'jquery');
     }
 }
